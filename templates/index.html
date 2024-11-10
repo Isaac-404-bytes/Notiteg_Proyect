@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notiteg</title>
+    <link rel="icon" href="{{ url_for('static', filename='imagenes/Logo_Notiteg.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="/static/css/styles.CSS"">
+</head>
+
+<body>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <header class="header">
+        <div class="menu container">
+            <a href="#bar" class="logo">Notiteg</a>
+            <nav class="navbar" id="bar">
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                    <li><a href="{{ url_for('busqueda') }}" target="_blank">Buscador</a></li> <!-- Aquí apunta a la página de búsqueda -->
+                    <li><a href="/history.html">Historias</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="header-content container" id="items">
+            <div class="header-txt">
+                <span>Bienvenido</span>
+                <h1>Bienvenido</h1>
+                <p>Nuestro objetivo es apoyar a las familias y a las autoridades en la búsqueda de personas desaparecidas mediante el uso de tecnología avanzada de reconocimiento facial.
+                Nuestro sistema analiza imágenes y bases de datos para identificar coincidencias que faciliten la localización de personas.</p>
+                <a href="/history.html" class="btn-1">informacion</a>
+            </div>
+            <div class="header-img">
+                <img src="{{ url_for('static', filename='imagenes/inicio.jpg') }}" class="img-inicio" alt="">
+            </div>
+        </div>
+    </header>
+
+    <section class="informacion container">
+        <div class="informacion-content">
+            <div class="informacion-1">
+                <img src="{{ url_for('static', filename='imagenes/imac-svgrepo-com.svg') }}" alt="">
+                <h3>Importancia</h3>
+                <p>Los avances tecnológicos nos brindan la oportunidad de ampliar nuestro alcance con reconocimiento preciso.</p>
+            </div>
+            <div class="informacion-1">
+                <img src="{{ url_for('static', filename='imagenes/iphone-svgrepo-com.svg') }}" alt="">
+                <h3>Responsive</h3>
+                <p>La programación está optimizada para funcionar en cualquier dispositivo.</p>
+            </div>
+            <div class="informacion-1">
+                <img src="{{ url_for('static', filename='imagenes/code-svgrepo-com.svg') }}" alt="">
+                <h3>Codificación</h3>
+                <p>Con IA podemos garantizar que la persona reconocida sea la adecuada.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="conte">
+            <p>&copy; 2024 Notiteg. Todos los derechos reservados.</p>
+            <ul class="social-links">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>

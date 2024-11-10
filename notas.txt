@@ -1,0 +1,47 @@
+para crear tabla reconocimientos 
+CREATE TABLE reconocimientos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    fecha_hora DATETIME NOT NULL,
+    lugar VARCHAR(255),
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+
+Descripción General
+app.py: Este script es el backend de tu aplicación. Configura una conexión a la base de datos, carga modelos para reconocimiento facial, maneja la subida de imágenes, procesa las imágenes y devuelve resultados a la interfaz web.
+
+index.html: Este archivo es el frontend de tu aplicación. Proporciona la estructura HTML y los elementos de Bootstrap(https://getbootstrap.com) para el diseño. Contiene un formulario para subir imágenes, muestra los resultados del reconocimiento y el historial de reconocimientos en una tabla interact
+
+App1.py : Este archivo es el script legacy, el cual agrega al usuario, entrena el modelo de reconocimiento y reconoce caras en tiempo real.
+
+Workflow:
+
+1. Usar app1.py, registrar, entrenar y detectar
+2. Usa app.py y deberias poder usarlo en http://127.0.0.1:5000
+
+Asegurate de haber instalado flask en tu computadora "pip install flask"
+
+Como funciona?
+
+Carga de Dependencias: Utilizas Flask para el servidor web, OpenCV para la detección de caras, y mysql.connector para interactuar con la base de datos.
+Modelo de Reconocimiento Facial: Cargas el clasificador de caras de Haar y el modelo LBPH para el reconocimiento facial.
+
+Funciones Definidas:
+obtener_ultimo_reconocimiento(): Obtiene la última fecha y lugar donde se reconoció a un usuario.
+detectar_reconocer_cara_desde_imagen(): Procesa la imagen subida, detecta caras y verifica si la cara corresponde a un usuario registrado. También obtiene el último reconocimiento si se identifica a alguien.
+
+Rutas:
+La ruta principal / muestra el formulario para subir imágenes.
+La ruta /upload maneja la subida de la imagen, llama a la función de reconocimiento y muestra los resultados.
+Manejo de Archivos: Almacenas temporalmente la imagen subida para procesarla, y luego la eliminas para no llenar el servidor con archivos innecesarios.
+
+Sugerencias para Mejorar
+
+Validaciones Adicionales: Podrías agregar más validaciones para verificar el tipo de archivo antes de guardarlo. Asegúrate de que sea una imagen.
+Manejo de Errores: Implementa un manejo de errores más robusto, especialmente en la conexión a la base de datos y la lectura de archivos.
+Mejoras en la Interfaz: Considera agregar estilos y elementos visuales adicionales usando Bootstrap para mejorar la experiencia del usuario.
+Optimización del Reconocimiento: Si tienes muchas imágenes o registros, podría ser útil implementar alguna forma de caché o optimización en las consultas de la base de datos.
+
+
+/*****************/
